@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연금저축·IRP·ISA 과세이연계좌 연말 세미나</title>
+    
+    <!-- Google Fonts - Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        /* Hero 섹션 배경 - 더 진한 그라데이션 */
+        .hero-background {
+            background: linear-gradient(135deg, #C7E0FF 0%, #B8D8FF 20%, #A8CFFF 40%, #9BC7FF 60%, #B0D5FF 80%, #C7E0FF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 배경 장식 요소 1 */
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        /* 배경 장식 요소 2 */
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            bottom: -15%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        /* 프로필 사진 영역 */
+        .profile-image-container {
+            background-image: url('assets/profile.JPG');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 74, 173, 0.15);
+        }
+        
+        /* 프로필 사진 위 미세한 그라데이션 */
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 74, 173, 0.03) 0%, transparent 40%, transparent 60%, rgba(0, 74, 173, 0.05) 100%);
+            z-index: 1;
+        }
+        
+        /* 진행자 이름 스타일 */
+        .presenter-name {
+            color: #004AAD;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        
+        /* 부드러운 스크롤 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 안내문 스타일 */
+        .intro-text {
+            color: #374151;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .intro-text p {
+            line-height: 1.8;
+        }
+        
+        /* 궁금한 내용 예시 스타일 */
+        .question-examples {
+            color: #374151;
+            line-height: 1.8;
+        }
+        
+        .question-item {
+            position: relative;
+            padding-left: 1.75rem;
+            font-size: 1rem;
+        }
+        
+        .question-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #004AAD;
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+        
+        /* 제목 애니메이션 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-title {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* 카드 hover 효과 */
+        .info-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 74, 173, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Hero 섹션 -->
+    <section id="hero" class="hero-background min-h-screen flex items-center relative z-10">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-20 relative z-10 w-full">
+            <div class="max-w-7xl mx-auto">
+                <!-- 제목 -->
+                <div class="text-center mb-12 md:mb-16">
+                    <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-5" style="line-height: 1.6;">
+                        연금저축·IRP·ISA<br>
+                        <span class="text-[#004AAD]" style="background: linear-gradient(135deg, #004AAD 0%, #0066CC 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">과세이연계좌 연말 세미나</span>
+                    </h1>
+                    <div class="w-24 h-1 bg-gradient-to-r from-[#004AAD] to-[#0066CC] mx-auto rounded-full"></div>
+                </div>
+                
+                <!-- 메인 콘텐츠 영역 -->
+                <div class="grid lg:grid-cols-3 gap-8 lg:gap-10 items-stretch mb-12">
+                    <!-- 왼쪽: 프로필 카드 -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-blue-50 h-full flex flex-col">
+                            <div class="profile-image-container aspect-[4/5] relative z-10 mb-4 flex-grow"></div>
+                            <p class="presenter-name text-center text-lg">진행: 최근민</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 오른쪽: 텍스트 콘텐츠 -->
+                    <div class="lg:col-span-2 flex flex-col gap-6">
+                        <!-- 안내문 -->
+                        <div class="info-card bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 intro-text shadow-lg border border-blue-50 flex-1 flex flex-col justify-center">
+                            <p class="mb-4 leading-relaxed">
+                                안녕하세요 최근민입니다.
+                            </p>
+                            <p class="mb-4 leading-relaxed">
+                                매년 연말이 가까워 오면 연금저축과 IRP / 퇴직연금, ISA 계좌와 세금등에 대한 고민과 궁금하신 점이 많으실 줄 압니다.
+                            </p>
+                            <p class="mb-4 leading-relaxed">
+                                직접 한분한분 찾아뵙고 설명드려야 하지만 시간적 제약이 있어 별도의 줌 세미나를 준비했습니다.
+                            </p>
+                            <p class="mb-4 leading-relaxed">
+                                연말 스케쥴을 감안해 2번으로 나누어 진행되며, 내용은 동일합니다.
+                            </p>
+                            <p class="mb-4 leading-relaxed">
+                                신청 시 궁금하신 점을 작성해주시면 미리 준비해서 당일 말씀드리도록 하겠습니다.
+                            </p>
+                            <p class="text-[#004AAD] font-semibold flex items-center gap-2 pt-4 border-t border-blue-100">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                </svg>
+                                주변 관심있으신 분들에게 전달 해주셔도 좋습니다
+                            </p>
+                        </div>
+                        
+                        <!-- 바디카피 + 궁금한 내용 예시 -->
+                        <div class="info-card bg-gradient-to-br from-white/95 to-blue-50/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 question-examples shadow-lg border border-blue-100 flex-1 flex flex-col justify-center">
+                            <div class="text-center mb-5">
+                                <p class="text-xl md:text-2xl text-gray-800 font-medium italic">
+                                    미래를 준비하는 가장 현명한 방법을 함께 이야기합니다
+                                </p>
+                            </div>
+                            <div class="border-t border-blue-200 pt-5">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <!-- 왼쪽: 이런 궁금증을 해결해드립니다 -->
+                                    <div>
+                                        <p class="text-lg font-bold mb-4 text-[#004AAD] flex items-center gap-2">
+                                            <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                                            </svg>
+                                            이런 궁금증을 해결해드립니다
+                                        </p>
+                                        <div class="space-y-3">
+                                            <p class="question-item">연금저축을 얼마까지 넣어야 효과적인걸까?</p>
+                                            <p class="question-item">세액공제를 받지 않은 자금은 어떻게 되는거지?</p>
+                                            <p class="question-item">ISA계좌는 어떻게 활용하지?</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 오른쪽: 이런 내용을 말씀드립니다 -->
+                                    <div>
+                                        <p class="text-lg font-bold mb-4 text-[#004AAD] flex items-center gap-2">
+                                            <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                            </svg>
+                                            이런 내용을 말씀드립니다
+                                        </p>
+                                        <div class="space-y-3">
+                                            <p class="question-item">
+                                                연금, IRP, ISA의 기본 개념 <span class="text-sm text-gray-600">(가이드북 제공예정)</span>
+                                            </p>
+                                            <p class="question-item">
+                                                연금, IRP, ISA의 용도와 우선순위 및 투자대상
+                                            </p>
+                                            <p class="question-item">
+                                                각 계좌의 재원별 세율, 세목에 대한 정리
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA 버튼 - 히어로 섹션 하단 중앙 -->
+                <div class="text-center">
+                    <button 
+                        onclick="document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' })"
+                        class="bg-[#004AAD] hover:bg-[#003A8D] text-white font-bold py-4 px-12 rounded-full text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3"
+                    >
+                        지금 신청하기
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </button>
+                    <p class="text-sm text-gray-600 mt-4">
+                        본 세미나는 인모스트투자자문 본사 주관이 아닌 제가 관리를 맡고 있는 고객분들을 위한 개별 세미나입니다
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 행사 일정 섹션 -->
+    <section id="schedule" class="py-20 bg-gradient-to-b from-white to-blue-50/30">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                    세미나 일정
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-[#004AAD] to-[#0066CC] mx-auto rounded-full"></div>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white shadow-2xl rounded-2xl p-6 md:p-8 space-y-6 border-2 border-blue-100">
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl">📅</div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-gray-900 mb-1">일시</h3>
+                            <p class="text-gray-700">
+                                1차 - 2025년 11월 28일(금) 저녁 8시<br>
+                                2차 - 2025년 11월 29일(토) 저녁 8시
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl">📍</div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-gray-900 mb-1">세미나 방식</h3>
+                            <p class="text-gray-700">세미나 당일 Zoom 온라인 주소 문자발송</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl">🎯</div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-gray-900 mb-1">주제</h3>
+                            <p class="text-gray-700">연금저축, IRP, ISA 계좌의 이해 및 활용</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl">🎁</div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-gray-900 mb-1">혜택</h3>
+                            <p class="text-gray-700">참석자 전원 가이드북 제공</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 신청 폼 섹션 -->
+    <section id="form-section" class="py-20 bg-gradient-to-b from-blue-50/30 to-[#F6F9FF] border-t-4 border-blue-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                    세미나 신청
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-[#004AAD] to-[#0066CC] mx-auto rounded-full"></div>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <form id="seminar-form" class="bg-white shadow-lg rounded-xl p-6 md:p-8 space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
+                            이름 <span class="text-red-500">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#004AAD] focus:border-transparent outline-none transition-all"
+                            placeholder="이름을 입력해주세요"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">
+                            연락처 <span class="text-red-500">*</span>
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#004AAD] focus:border-transparent outline-none transition-all"
+                            placeholder="010-0000-0000"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="question" class="block text-sm font-semibold text-gray-700 mb-2">
+                            궁금한 사항
+                        </label>
+                        <textarea 
+                            id="question" 
+                            name="question" 
+                            rows="4"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#004AAD] focus:border-transparent outline-none transition-all resize-none"
+                            placeholder="세미나에서 다루었으면 하는 내용이나 궁금한 점을 자유롭게 작성해주세요"
+                        ></textarea>
+                    </div>
+                    
+                    <div id="form-message" class="hidden p-4 rounded-lg"></div>
+                    
+                    <button 
+                        type="submit"
+                        id="submit-button"
+                        class="w-full bg-[#004AAD] hover:bg-[#003A8D] text-white font-semibold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    >
+                        신청하기
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 안내 배너 섹션 -->
+    <section id="info-banner" class="py-12 bg-[#004AAD]">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto space-y-4 text-white text-center">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <p class="text-lg md:text-xl font-semibold mb-2">
+                        세미나는 무료로 진행됩니다
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <p class="text-lg md:text-xl font-semibold">
+                        Zoom 온라인으로 진행되며, 신청하신 분들께 링크를 발송해드립니다
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 푸터 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center space-y-4">
+                <p class="text-gray-400">
+                    © 2025 Joseph Choi Financial Seminar
+                </p>
+                <p class="text-gray-400">
+                    문의: 010-3747-0086 / <a href="mailto:kunmin.choi@gmail.com" class="text-[#FFD166] hover:underline">kunmin.choi@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="scripts/form.js"></script>
+</body>
+</html>
+
