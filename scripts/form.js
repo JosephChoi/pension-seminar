@@ -21,7 +21,7 @@
  */
 
 // Google Apps Script Web App URL
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby49ABv22ETblX99dKpVZtoOcdv28GdJqhQKtSszzhp0dm-6rz7wCIo7EoGAHp5uEk/exec';
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxpH3b-AxoDZ7-DJ_zexsNGbESPqCyXcMAQZg8hbi5G2qdWl6kC1hb-QuSYAX-Q4_Ck/exec';
 
 /**
  * 전화번호를 010-XXXX-XXXX 형식으로 정규화
@@ -96,6 +96,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let phone = document.getElementById('phone').value.trim();
         const question = document.getElementById('question').value.trim();
         
+        // 세션 선택 가져오기
+        const sessionCheckboxes = document.querySelectorAll('input[name="session"]:checked');
+        const sessions = Array.from(sessionCheckboxes).map(cb => cb.value);
+        
         // 유효성 검사
         if (!name) {
             showMessage('이름을 입력해주세요.', 'error');
@@ -106,6 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!phone) {
             showMessage('연락처를 입력해주세요.', 'error');
             document.getElementById('phone').focus();
+            return;
+        }
+        
+        if (sessions.length === 0) {
+            showMessage('참여하실 세션을 최소 1개 이상 선택해주세요.', 'error');
             return;
         }
         
@@ -141,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = {
                 name: name,
                 phone: phone,
+                session: sessions.join(', '), // 선택된 세션들을 쉼표로 구분하여 저장
                 question: question || ''
             };
             

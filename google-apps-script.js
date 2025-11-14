@@ -34,14 +34,35 @@ function doPost(e) {
     if (!sheet) {
       sheet = spreadsheet.insertSheet(SHEET_NAME);
       // 헤더 추가
-      sheet.appendRow(['Timestamp', '이름', '연락처', '궁금한 사항']);
+      sheet.appendRow(['Timestamp', '이름', '연락처', '참여 세션', '궁금한 사항']);
       // 헤더 스타일링
-      var headerRange = sheet.getRange(1, 1, 1, 4);
+      var headerRange = sheet.getRange(1, 1, 1, 5);
       headerRange.setFontWeight('bold');
       headerRange.setBackground('#004AAD');
       headerRange.setFontColor('#FFFFFF');
       // 열 너비 자동 조정
-      sheet.autoResizeColumns(1, 4);
+      sheet.autoResizeColumns(1, 5);
+    }
+    
+    // 기존 시트에 헤더가 없는 경우 (기존 데이터 마이그레이션)
+    var headerRow = sheet.getRange(1, 1, 1, sheet.getLastColumn());
+    var headerValues = headerRow.getValues()[0];
+    var hasSessionColumn = false;
+    for (var i = 0; i < headerValues.length; i++) {
+      if (headerValues[i] === '참여 세션') {
+        hasSessionColumn = true;
+        break;
+      }
+    }
+    
+    // 헤더가 4개 컬럼만 있는 경우 (기존 형식) - 헤더 업데이트
+    if (headerValues.length === 4 && !hasSessionColumn) {
+      sheet.insertColumnAfter(3); // 연락처 다음에 컬럼 추가
+      sheet.getRange(1, 4).setValue('참여 세션');
+      sheet.getRange(1, 1, 1, 5).setFontWeight('bold');
+      sheet.getRange(1, 1, 1, 5).setBackground('#004AAD');
+      sheet.getRange(1, 1, 1, 5).setFontColor('#FFFFFF');
+      sheet.autoResizeColumns(1, 5);
     }
     
     // POST 데이터 파싱
@@ -55,6 +76,7 @@ function doPost(e) {
       timestamp,
       postData.name || '',
       postData.phone || '',
+      postData.session || '',
       postData.question || ''
     ];
     
