@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             // Google Apps Script로 POST 요청
+            // Google Apps Script Web App은 CORS를 지원하지 않으므로 no-cors 모드 사용
             const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors', // CORS 이슈 방지를 위해 no-cors 사용
@@ -165,7 +166,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // no-cors 모드에서는 response를 읽을 수 없으므로 항상 성공으로 처리
-            // 실제 성공 여부는 Google Sheets에서 확인 필요
+            // 실제 성공 여부와 문자 발송 결과는 Google Apps Script 실행 로그에서 확인 필요
+            console.log('폼 제출 완료 (응답 확인 불가 - no-cors 모드)');
             showMessage('신청이 접수되었습니다. 행사 전 안내문을 발송드릴 예정입니다.', 'success');
             
             // 버튼 텍스트를 "신청완료"로 변경
